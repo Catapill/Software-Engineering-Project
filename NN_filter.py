@@ -6,10 +6,25 @@ Created on Tue Mar 17 13:51:42 2020
 """
 import pandas as pd
 from keras.models import Sequential
+<<<<<<< HEAD
 from keras.layers import Dense
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 import matplotlib.pyplot as plt
+=======
+from keras.layers import Dense, Dropout
+
+import numpy as np
+from sklearn.model_selection import train_test_split
+
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.pipeline import Pipeline
+import keras
+import numpy as np
+from keras.datasets import reuters
+>>>>>>> master
 
 pd.set_option('display.max_colwidth', 1000)
 
@@ -20,7 +35,11 @@ df_feature = dataframe['Message']
 
 def create_doc_feature_df(sparse_mat, feature_names):
     return(pd.DataFrame.sparse.from_spmatrix(sparse_mat, columns=feature_names))
+<<<<<<< HEAD
 
+=======
+# -----
+>>>>>>> master
 count_vect = CountVectorizer(stop_words='english')
 count_vect.fit(df_feature)
 feature = create_doc_feature_df(count_vect.transform(df_feature),count_vect.get_feature_names())
@@ -35,6 +54,7 @@ x_train.shape
 
 model = Sequential()
 model.add(Dense(50, input_dim=8440, activation='relu'))
+<<<<<<< HEAD
 model.add(Dense(2, activation='sigmoid'))
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
@@ -51,6 +71,19 @@ plt.show()
 plt.plot(history.history['accuracy'])
 plt.plot(history.history['val_accuracy'])
 plt.title('Model Accuracy')
+=======
+model.add(Dense(50, activation='relu'))
+model.add(Dense(50, activation='relu'))
+model.add(Dense(2, activation='sigmoid'))
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+history = model.fit(x_train,y_train, epochs=200, batch_size=32, validation_data=(x_test, y_test))
+
+import matplotlib.pyplot as plt
+plt.plot(history.history['accuracy'])
+plt.plot(history.history['val_accuracy'])
+plt.title('Model accuracy')
+>>>>>>> master
 plt.ylabel('Accuracy')
 plt.xlabel('Epoch')
 plt.legend(['Train', 'Test'], loc='upper left')
