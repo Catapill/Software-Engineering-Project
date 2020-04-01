@@ -30,11 +30,6 @@ parser.parse_args(
         )
 
 parser.parse_args(
-        '--encoder', default=0.3, type=float,
-        help='How to encode the data'
-        )
-
-parser.parse_args(
         '--dropout', default=0.3, type=float,
         help='Dropout'
         )
@@ -42,4 +37,9 @@ parser.parse_args(
 parser.parse_args(
         '--lr', default=0.0001, type=float,
         help='Learning rate'
+        )
+
+parser.parse_args(
+        '--batch', default=50, type=int,
+        help='Batch size'
         )
