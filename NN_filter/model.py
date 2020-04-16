@@ -4,10 +4,12 @@ Created on Sat Mar 21 14:42:20 2020
 
 @author: adamw
 """
+#imports
 from keras import Sequential
 from keras.layers import Dense
 from utils import test_train_epoch_graph
 
+#model function called by main.py
 def train_model(x_train, x_test, y_train, y_test):
     model = Sequential()
     model.add(Dense(50, input_dim=8440, activation='relu'))

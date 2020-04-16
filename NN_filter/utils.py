@@ -4,8 +4,10 @@ Created on Sat Mar 21 14:44:42 2020
 
 @author: adamw
 """
+#imports
 import matplotlib.pyplot as plt
 
+#graph plot function ccalled by model.py
 def test_train_epoch_graph(history, train, test):
     plt.plot(history.history[train])
     plt.plot(history.history[test])
