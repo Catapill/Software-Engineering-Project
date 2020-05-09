@@ -1,0 +1,6 @@
+For the Baseline Development, a neural network approach was used.
+filter.py and NN_filter.py can be ignored.
+
+TO RUN THE PROJECT:
+open and run main.py in the NN_filter folder
+this file calls model.py and utils.py 
